@@ -1,5 +1,5 @@
 ### Ex. No. 3
-### Date:8.4.23
+### Date: 8.4.23
 # Implementation of half adder and full adder circuit using Verilog HDL
 ## Aim :
 To design and implement half adder and full adder circuit using Verilog HDL and verify its truth table.
@@ -42,15 +42,43 @@ Carry = AB + ACin+BCin
 
 
 ## Program:
-
-
+### 1. HALF ADDER :
+```
+module exp3a(A,B,S,C);
+input A,B;
+output S,C;
+xor(S,A,B);
+and(C,A,B);
+endmodule
+```
+### 2. FULL ADDER :
+```
+module exp3b(A,B,C,S,CA);
+input A,B,C;
+output S,CA;
+wire bc,acout,bcout,about,baout;
+xor(bc,B,C);
+xor(S,A,bc);
+and(acout,A,C);
+and(about,A,B);
+and(bcout,B,C);
+or(baout,bcout,about);
+or(CA,acout,baout);
+endmodule
+```
 ## RTL Schematic:
+### 1. HALF ADDER:
+![image](https://github.com/R-Udayakumar/Adder/assets/118708024/1290bf25-d665-452b-846f-0ae96bb0cb48)
 
-
-
+### 2.FULL ADDER:
+![image](https://github.com/R-Udayakumar/Adder/assets/118708024/c0099b01-4800-4ffe-b2ef-a0f967393eff)
 
 ## Timing Diagram:
+### 1. HALF ADDER:
+![image](https://github.com/R-Udayakumar/Adder/assets/118708024/d72e707f-03f1-4dc0-a41b-1ae84a57875f)
 
+### 2.FULL ADDER:
+![image](https://github.com/R-Udayakumar/Adder/assets/118708024/873525ce-c3c8-4de1-865b-9639d4d4a563)
 
 ## Result:
 Thus the half adder and full adder circuits are designed and implemented and the truth tables are verified.
